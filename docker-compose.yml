@@ -1,0 +1,13 @@
+version: "3"
+services:
+  selenium:
+    image: selenium/standalone-firefox:92.0
+    ports:
+      - "4444:4444"
+  app:
+    image: app
+    build: app
+    volumes:
+      - "./app/:/srv/shiny-server/"
+    ports:
+      - "3838:3838"
